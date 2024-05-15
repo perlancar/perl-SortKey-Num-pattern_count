@@ -34,7 +34,7 @@ sub gen_keygen {
     my $re = $args{pattern} ? $args{pattern} : qr/\Q$args{string}\E/;
 
     sub {
-        my $str = shift;
+        my $str = @_ ? shift : $_;
         my $count = 0;
         $count++ while $str =~ /$re/g;
         $count;
